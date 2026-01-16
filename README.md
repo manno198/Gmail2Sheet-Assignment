@@ -8,37 +8,8 @@ A Python 3 automation system that securely reads unread Gmail messages using OAu
 
 ##  High-Level Architecture
 
-```mermaid
-graph TD
-    A[Gmail Inbox<br/>Unread Emails] -->|OAuth 2.0 Desktop Flow| B[Gmail API]
-    K[Load State<br/>state.json] --> B
-    B --> C[Email Parser]
-    C --> D{Subject Filter<br/>Contains 'Invoice'?}
-    D -->|No| E[Skip Email<br/>Log Action]
-    D -->|Yes| F[HTML → Plain Text<br/>Conversion]
-    F --> G[Truncate Content<br/>Max 49k chars]
-    G --> H[Google Sheets API]
-    H --> I[Append Row to Sheet]
-    I --> J[Mark Email as Read]
-    J --> K2[Update State File<br/>state.json]
-    K2 --> L[Log Completion]
+<img width="512" height="1086" alt="mermaid-diagram-2026-01-16-213329" src="https://github.com/user-attachments/assets/b934bf3f-dcc1-47d7-825b-d17bab0f7e5c" />
 
-    %% High-contrast styles
-    style A fill:#E3F2FD,color:#000000,stroke:#1565C0,stroke-width:2px
-    style B fill:#E8F5E9,color:#000000,stroke:#2E7D32,stroke-width:2px
-    style C fill:#F3E5F5,color:#000000,stroke:#6A1B9A,stroke-width:2px
-    style D fill:#FFFDE7,color:#000000,stroke:#F9A825,stroke-width:2px
-    style E fill:#FBE9E7,color:#000000,stroke:#D84315,stroke-width:2px
-    style F fill:#E0F2F1,color:#000000,stroke:#00695C,stroke-width:2px
-    style G fill:#E1F5FE,color:#000000,stroke:#0277BD,stroke-width:2px
-    style H fill:#E8F5E9,color:#000000,stroke:#1B5E20,stroke-width:2px
-    style I fill:#C8E6C9,color:#000000,stroke:#1B5E20,stroke-width:2px
-    style J fill:#FFF3E0,color:#000000,stroke:#EF6C00,stroke-width:2px
-    style K fill:#FFF9C4,color:#000000,stroke:#F57F17,stroke-width:2px
-    style K2 fill:#FFF9C4,color:#000000,stroke:#F57F17,stroke-width:2px
-    style L fill:#ECEFF1,color:#000000,stroke:#37474F,stroke-width:2px
-
-```
 
 ---
 
@@ -246,4 +217,5 @@ gmail-to-sheets/
 
 This is an assignment submission. Contributions are not expected, but feedback is welcome.
 Made with ❤️ by Harshita Singh.
+
 
